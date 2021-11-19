@@ -1,0 +1,16 @@
+---
+- name: register ctop repository key
+  ansible.builtin.apt_key:
+    url: https://azlux.fr/repo.gpg.key
+    state: present
+
+- name: add ctop repositories
+  apt_repository: repo='deb http://packages.azlux.fr/debian/ {{ debian.version }} main' state=present
+
+- name: install ctop package
+  apt:
+    name: "{{ packages }}"
+    state: latest
+  vars:
+    packages:
+      - ctop
