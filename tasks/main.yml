@@ -13,4 +13,4 @@
     state: latest
   vars:
     packages:
-      - ctop
+      - docker-ctop
